@@ -33,5 +33,5 @@ jobs:
       - name: Run autograding tests
         uses: education/autograding@v1
         env:
-          USER: ${{ github.actor }}
+          USER: "TestUser"
 
