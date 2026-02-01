@@ -16,7 +16,7 @@ jobs:
   autograde:
     runs-on: ubuntu-latest
     env:
-      USER: "TestUser"
+      USERNAME: "TestUser"
 
     steps:
       - uses: actions/checkout@v4
