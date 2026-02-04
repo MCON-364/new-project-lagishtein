@@ -1,0 +1,40 @@
+# Autograding configuration for GitHub Classroom
+# - Detect presence of pom.xml
+# - Copy the provided autograder test into the project's test sources
+# - Run `mvn test` and validate tests pass
+
+name: Autograder
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+
+
+jobs:
+  autograde:
+    runs-on: ubuntu-latest
+    env:
+      USERNAME: "TestUser"
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Copy autograder test into test tree
+        run: |
+          mkdir -p src/test/java/mcon364/las/touro/edu/autograding
+          # Copy test if it exists in the repository autograding_tests path
+          if [ -f .github/autograding_tests/mcon364/las/touro/edu/autograding/MainSignatureTest.java ]; then
+            cp .github/autograding_tests/mcon364/las/touro/edu/autograding/MainSignatureTest.java src/test/java/mcon364/las/touro/edu/
+          fi
+
+      - name: Run autograding tests
+        id: autograder
+        uses: education/autograding@v1
+
+
