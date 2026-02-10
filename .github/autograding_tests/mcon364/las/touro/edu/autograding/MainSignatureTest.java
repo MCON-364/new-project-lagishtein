@@ -129,7 +129,7 @@ public class MainSignatureTest {
 
         assertTrue(Modifier.isStatic(m.getModifiers()), "processValues must be static");
         assertTrue(Modifier.isPublic(m.getModifiers()), "processValues must be public");
-        assertEquals(void.class, m.getReturnType(), "processValues must return void");
+        assertEquals(Integer.class, m.getReturnType(), "processValues must return Integer");
     }
 
     /**
