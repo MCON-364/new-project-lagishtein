@@ -55,12 +55,12 @@ public class Main {
      */
     public static void processValues(List<List<Integer>> data) {
         System.out.println("Processing values with labeled control flow:");
-
+        var countRows = 0;
         outerLoop:
         for (int i = 0; i < data.size(); i++) {
             var innerList = data.get(i);
             System.out.println("  Processing list " + i + ": " + innerList);
-
+            countRows = i;
             for (var value : innerList) {
                 // If we find 0, skip to next outer list (labeled continue)
                 if (value == 0) {
@@ -81,6 +81,7 @@ public class Main {
         }
 
         System.out.println("Processing complete");
+        return i;
     }
 
     public static void main(String[] args) {
