@@ -53,7 +53,7 @@ public class Main {
      * - Stops processing entirely if value 99 is found (labeled break)
      * @param data the list of lists to process
      */
-    public static void processValues(List<List<Integer>> data) {
+    public static int processValues(List<List<Integer>> data) {
         System.out.println("Processing values with labeled control flow:");
         var countRows = 0;
         outerLoop:
@@ -81,7 +81,7 @@ public class Main {
         }
 
         System.out.println("Processing complete");
-        return i;
+        return countRows;
     }
 
     public static void main(String[] args) {
