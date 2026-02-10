@@ -1,0 +1,22 @@
+{
+  "tests": [
+    {
+      "name": "Check that pom.xml exists (anywhere in repo)",
+      "setup": "",
+      "run": "test \"$(find . -type f -name pom.xml -print -quit)\"",
+      "input": "",
+      "timeout": 5,
+      "points": 80
+    },
+    {
+      "name": "Run unit tests (mvn test)",
+      "setup": "",
+      "run": "USERNAME=TestUser mvn -B -DskipTests=false test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 20
+    }
+  ]
+}
